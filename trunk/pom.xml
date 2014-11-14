@@ -62,8 +62,8 @@
 	</dependencies>
 
 	<modules>
-		<module>whereisschool.web</module>
-		<module>whereisschool.hibernate</module>
 		<module>whereisschool.codegenerator</module>
+		<module>whereisschool.hibernate</module>
+		<module>whereisschool.web</module>
 	</modules>
 </project>
