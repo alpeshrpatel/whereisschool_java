@@ -1,0 +1,16 @@
+package com.mayfair.webservice.;
+
+import java.util.List;
+
+import com.mayfair.hibernate.entity.__TABLENAME__;
+
+
+public interface __TABLENAME__Service
+{
+	public void save__TABLENAME__(__TABLENAME__ __VARIABLENAME__) throws DatabaseAccessException;
+	public List<__TABLENAME__> findAll() throws DatabaseAccessException;
+	public void delete__TABLENAME__(__TABLENAME__ __TABLENAME__) throws DatabaseAccessException;
+	public __TABLENAME__ find__TABLENAME__(Long id) throws DatabaseAccessException;
+	public void deleteAll() throws DatabaseAccessException;
+	public void saveAll(List<__TABLENAME__> item) throws DatabaseAccessException;
+}

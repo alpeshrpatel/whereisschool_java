@@ -1,0 +1,7 @@
+City
+Curriculum
+LikedEntity
+School
+SchoolRating
+SchoolReview
+User

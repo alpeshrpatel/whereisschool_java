@@ -1,0 +1,16 @@
+package com.mayfair.hibernate.dao;
+
+import java.util.List;
+
+import com.mayfair.hibernate.dao.exception.DatabaseAccessException;
+import com.mayfair.hibernate.entity.__TABLENAME__;
+
+
+public interface __TABLENAME__DAO{
+	public void save(__TABLENAME__ __TABLENAME__) throws DatabaseAccessException;
+	public List<__TABLENAME__> findAll() throws DatabaseAccessException;
+	public void delete(__TABLENAME__ __TABLENAME__) throws DatabaseAccessException;
+	public __TABLENAME__ find(Long id) throws DatabaseAccessException;
+	public void deleteAll() throws DatabaseAccessException;
+	public void saveAll(List<__TABLENAME__> item) throws DatabaseAccessException;
+}
