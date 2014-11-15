@@ -20,7 +20,7 @@ import edu.igroup.whereisschool.hibernate.entity.City;
  * Controller for handling Citys.
  */
 @Controller
-@RequestMapping("/Citys")
+@RequestMapping("/citys")
 public class CityController {
 
     private CityDao cityDao;
