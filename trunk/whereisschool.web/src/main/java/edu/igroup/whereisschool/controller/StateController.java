@@ -42,7 +42,7 @@ public class StateController {
     @RequestMapping(method = RequestMethod.GET)
     public String showStates(Model model) {
         List<State> States = stateDao.list();
-        model.addAttribute("States", States);
+        model.addAttribute("states", States);
 
         return "states/list";
     }
@@ -76,7 +76,7 @@ public class StateController {
     @ExceptionHandler(StateDeleteException.class)
     public ModelAndView handleDeleteException(StateDeleteException e) {
         ModelMap model = new ModelMap();
-        model.put("State", e.getState());
+        model.put("state", e.getState());
         return new ModelAndView("states/delete-error", model);
     }
 
@@ -89,7 +89,7 @@ public class StateController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String getState(@PathVariable("id") long id, Model model) {
         State State = stateDao.find(id);
-        model.addAttribute("State", State);
+        model.addAttribute("state", State);
 
         return "states/view";
     }
@@ -105,7 +105,7 @@ public class StateController {
         state.setStateid((int)id);
         stateDao.update(state);
 
-        return "redirect:/States";
+        return "redirect:/states";
     }
 
     /**
@@ -115,7 +115,7 @@ public class StateController {
      */
     @RequestMapping(params = "new", method = RequestMethod.GET)
     public String createStateForm(Model model) {
-        model.addAttribute("State", new State());
+        model.addAttribute("state", new State());
         return "states/new";
     }
 
@@ -128,7 +128,7 @@ public class StateController {
     public String addState(State State) {
         stateDao.add(State);
 
-        return "redirect:/States";
+        return "redirect:/states";
     }
     
 }
