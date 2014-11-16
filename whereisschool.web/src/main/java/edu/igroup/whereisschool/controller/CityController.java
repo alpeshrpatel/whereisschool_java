@@ -22,7 +22,8 @@ import edu.igroup.whereisschool.hibernate.entity.City;
 @Controller
 @RequestMapping("/citys")
 public class CityController {
-
+	
+	@Autowired(required = true)
     private CityDao cityDao;
 
     @Autowired
@@ -37,14 +38,14 @@ public class CityController {
     /**
      * Retrieves Citys, puts them in the model and returns corresponding view
      * @param model Model to put Citys to
-     * @return Citys/list
+     * @return citys/list
      */
     @RequestMapping(method = RequestMethod.GET)
     public String showCitys(Model model) {
         List<City> Citys = cityDao.list();
         model.addAttribute("Citys", Citys);
 
-        return "Citys/list";
+        return "citys/list";
     }
 
     /**
@@ -65,33 +66,33 @@ public class CityController {
         }
 
         // everything OK, see remaining Citys
-        return "redirect:/Citys";
+        return "redirect:/citys";
     }
 
     /**
      * Handles CityDeleteException
      * @param e Thrown exception with City that couldn't be deleted
-     * @return binds City to model and returns Citys/delete-error
+     * @return binds City to model and returns citys/delete-error
      */
     @ExceptionHandler(CityDeleteException.class)
     public ModelAndView handleDeleteException(CityDeleteException e) {
         ModelMap model = new ModelMap();
-        model.put("City", e.getCity());
-        return new ModelAndView("Citys/delete-error", model);
+        model.put("city", e.getCity());
+        return new ModelAndView("citys/delete-error", model);
     }
 
     /**
      * Returns City with specified ID
      * @param id City's ID
      * @param model Model to put City to
-     * @return Citys/view
+     * @return citys/view
      */
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String getCity(@PathVariable("id") long id, Model model) {
         City city = cityDao.find(id);
-        model.addAttribute("City", city);
+        model.addAttribute("city", city);
 
-        return "Citys/view";
+        return "citys/view";
     }
 
     /**
@@ -105,18 +106,18 @@ public class CityController {
         city.setCityId(id);
         cityDao.update(city);
 
-        return "redirect:/Citys";
+        return "redirect:/citys";
     }
 
     /**
      * Creates form for new City
      * @param model Model to bind to HTML form
-     * @return Citys/new
+     * @return citys/new
      */
     @RequestMapping(params = "new", method = RequestMethod.GET)
     public String createCityForm(Model model) {
-        model.addAttribute("City", new City());
-        return "Citys/new";
+        model.addAttribute("city", new City());
+        return "citys/new";
     }
 
     /**
@@ -128,7 +129,7 @@ public class CityController {
     public String addCity(City City) {
         cityDao.add(City);
 
-        return "redirect:/Citys";
+        return "redirect:/citys";
     }
     
 }
