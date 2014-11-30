@@ -64,6 +64,6 @@
 	<modules>
 		<module>whereisschool.codegenerator</module>
 		<module>whereisschool.hibernate</module>
-		<module>whereisschool.web</module>
+		<module>whereisschool.webservice1</module>
 	</modules>
 </project>
